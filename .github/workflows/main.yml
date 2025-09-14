@@ -49,8 +49,8 @@ jobs:
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         shell: powershell
-        working-directory: ./src  # 👈 Changed to src folder
+        working-directory: eShop/src  # Updated to point to eShop/src
         run: |
-          ..\.sonar\scanner\dotnet-sonarscanner begin /k:"MustafaZafar929_Re-Engg-ass1" /o:"mustafazafar929" /d:sonar.token="${{ secrets.SONAR_TOKEN }}"
-          dotnet build eShop.sln --no-incremental  # 👈 Adjusted solution file name and path
-          ..\.sonar\scanner\dotnet-sonarscanner end /d:sonar.token="${{ secrets.SONAR_TOKEN }}"
+          ..\..\.sonar\scanner\dotnet-sonarscanner begin /k:"MustafaZafar929_Re-Engg-ass1" /o:"mustafazafar929" /d:sonar.token="${{ secrets.SONAR_TOKEN }}"
+          dotnet build eShop.sln --no-incremental
+          ..\..\.sonar\scanner\dotnet-sonarscanner end /d:sonar.token="${{ secrets.SONAR_TOKEN }}"
